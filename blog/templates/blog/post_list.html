@@ -7,7 +7,8 @@
                 <h4><b>Опубликовано: {{ post.published_date }}</b></h4>
             </div>
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            {{ post.text|linebreaksbr }}
+            <p>{{ post.text|linebreaksbr }}</p>
+            <a href="{% url 'post_detail' post.pk %}">Комментариев: {{ post.approved_comments.count }}</a>
         </div>
     {% endfor %}
 {% endblock %}
